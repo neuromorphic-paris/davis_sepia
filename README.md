@@ -37,6 +37,17 @@ If the command is not found, you need to install Homebrew first with the command
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+### Windows
+
+Download [libusb 1.0](https://libusb.info/) (Downloads > Latest Windows Binaries). After downloading and decompressing *libusb-1.0.22.7z*, run in the command prompt as administrator:
+```sh
+copy "%userprofile%\Downloads\MS32\dll\libusb-1.0.dll" "C:\Windows\SysWOW64"
+copy "%userprofile%\Downloads\MS32\dll\libusb-1.0.lib" "C:\Windows\SysWOW64"
+copy "%userprofile%\Downloads\MS32\dll\libusb-1.0.pdb" "C:\Windows\SysWOW64"
+mkdir C:\Include\libusb-1.0
+copy "%userprofile%\Downloads\include\libusb-1.0\libusb.h" "C:\Include\libusb-1.0"
+```
+
 # contribute
 
 ## development dependencies

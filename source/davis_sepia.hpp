@@ -73,7 +73,7 @@ namespace davis_sepia {
             check_usb_error(libusb_init(&context), "initializing the USB context");
             libusb_device** devices;
             const auto count = libusb_get_device_list(context, &devices);
-            for (std::size_t index = 0; index < count; ++index) {
+            for (ssize_t index = 0; index < count; ++index) {
                 libusb_device_descriptor descriptor;
                 if (libusb_get_device_descriptor(devices[index], &descriptor) == 0) {
                     if (descriptor.idVendor == 5418 && descriptor.idProduct == 33819) {
@@ -525,7 +525,7 @@ namespace davis_sepia {
                 auto device_found = false;
                 libusb_device** devices;
                 const auto count = libusb_get_device_list(_context, &devices);
-                for (std::size_t index = 0; index < count; ++index) {
+                for (ssize_t index = 0; index < count; ++index) {
                     libusb_device_descriptor descriptor;
                     if (libusb_get_device_descriptor(devices[index], &descriptor) == 0) {
                         if (descriptor.idVendor == 5418 && descriptor.idProduct == 33819) {
